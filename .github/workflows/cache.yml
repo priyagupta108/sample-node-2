@@ -10,12 +10,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      
+    - uses: actions/setup-node@v4
       with:
-        node-version: '14' # or any version you prefer
-        # cache: 'npm' (disable caching)
+        node-version: '14'
+        cache: 'npm'
+        cache-dependency-path: 'package.json' # The lockfile won't be used for generating the cache key.
+    - run: npm install
+    - run: npm test
 
-    - name: Install dependencies
-      run: npm install
-    - name: Run script
-      run: node index.js
+   
