@@ -15,7 +15,8 @@ jobs:
       with:
         node-version: '14'
         cache: 'npm'
-        cache-dependency-path: 'package.json' # The lockfile won't be used for generating the cache key.
+        cache-dependency-path: 'package.json'
+        
     - run: npm install
     - run: npm test
 
